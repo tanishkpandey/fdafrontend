@@ -69,13 +69,11 @@ function Registrationpage() {
       confirmPassword,
     }
 
-    console.log("Form Data:", formData)
 
     Axios.post("http://localhost:4000/api/users/register", formData)
       .then((response) => {
         const work = response.data
         toast.success("Registered Successfully!")
-        console.log(work)
         setFormValues({
           ...formValues,
           check: work.check,
@@ -87,7 +85,7 @@ function Registrationpage() {
         if (response.data.errno === 1062) {
           setFormValues({
             ...formValues,
-            
+
             dup: "User Exist! Change username or email!",
           })
         } else {
@@ -98,6 +96,7 @@ function Registrationpage() {
         }
       })
       .catch((err) => {
+        toast.error("Registration failed. Please try again.");
         console.log(err)
       })
 
@@ -246,12 +245,10 @@ function Registrationpage() {
                     Mobile <span className="text-danger">*</span>
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     id="inputmobile"
                     name="mobile"
-                    pattern="\+91[0-9]{10}"
-                    title="Mobile number must start with +91"
                     required
                     value={formValues.mobile}
                     onChange={handleChange}

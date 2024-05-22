@@ -1,55 +1,39 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import fdalogo from "../../assets/images/LOGO/fdalogo.png";
-import { IoReturnUpBack } from "react-icons/io5";
-import { useForm } from "react-hook-form";
-import Axios from "axios";
-import "../../../../Css/Registration.css";
-
-const Loginpage = () => {
-  const Navigate = useNavigate();
-
+import React, { useState, Fragment } from "react"
+import { useForm } from "react-hook-form"
+import axios from "axios"
+import { IoReturnUpBack } from "react-icons/io5"
+import fdalogo from "../../assets/images/LOGO/fdalogo.png"
+import { toast } from "react-hot-toast"
+import { useNavigate } from "react-router-dom"
+const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [checkPass, setCheckPass] = useState(false);
-  const userData = localStorage.getItem("user");
+  } = useForm()
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [checkPass, setCheckPass] = useState(false)
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    if (!userData) {
-      Navigate("/crm/user/Login-page");
-    } else {
-      Navigate("/crm/user/dashboard");
+  const fetchuser = async (data) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/api/users/login",
+        {
+          email: data.username,
+          password: data.password,
+        }
+      )
+      toast.success("Login successful!")
+      navigate("/dashboard")
+    } catch (error) {
+      console.error("Login failed", error.response.data)
+      toast.error("Login failed. Please check your username or password.")
+      setCheckPass(true)
     }
-  }, [userData, Navigate]);
+  }
 
-  const fetchuser = (all) => {
-    console.log(all);
-    setUsername(all.username);
-    setPassword(all.password);
-    // Axios.post("https://server-3a0j.onrender.com/logs", {
-    Axios.post("http://localhost:4000/logs", {
-      Username: username,
-      Password: password,
-    })
-      .then((response) => {
-        console.log(response.data);
-        if (response.data.login) {
-          localStorage.setItem("user", JSON.stringify(response.data.udata));
-          Navigate("/crm/user/dashboard");
-        }
-        if (response.data.code === 143) {
-          setCheckPass(true);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   return (
     <Fragment>
       <div
@@ -76,19 +60,18 @@ const Loginpage = () => {
                 Login Into Your Account
               </p>
               <p className="fs-6 text-center text-white">
-                {" "}
                 You have to provide all of your valid information as we want.
               </p>
               <p className="text-center">
                 <button className="btn btn-primary backbtn">
-                  <a className="text-decoration-none" href="/">
+                  <a className="text-decoration-none text-white" href="/">
                     <IoReturnUpBack /> Back to home
                   </a>
                 </button>
               </p>
             </div>
             <div
-              className="col-md-6 "
+              className="col-md-6"
               style={{
                 backgroundColor: "#023047",
                 borderLeft: "1px solid gray",
@@ -100,21 +83,21 @@ const Loginpage = () => {
                 </a>
               </div>
 
-              <div className={`${checkPass ? "d-block" : "d-none"}`}>
+              {checkPass && (
                 <div
                   className="alert alert-danger alert-dismissible fade show"
                   role="alert"
                 >
-                  username or password wrong!
+                  Username or password wrong!
                   <button
                     type="button"
                     className="btn-close"
                     onClick={() => {
-                      setCheckPass(false);
+                      setCheckPass(false)
                     }}
                   ></button>
                 </div>
-              </div>
+              )}
 
               <form
                 className="row g-md-4 text-light"
@@ -129,13 +112,13 @@ const Loginpage = () => {
                     className="form-control"
                     id="loginusername"
                     {...register("username", { required: true })}
-                    onChange={(evet) => {
-                      setUsername(evet.target.value);
+                    onChange={(event) => {
+                      setUsername(event.target.value)
                     }}
                   />
                   {errors.username && (
                     <span className="text-danger fst-italic fw-none">
-                      username required
+                      Username required
                     </span>
                   )}
                 </div>
@@ -149,12 +132,12 @@ const Loginpage = () => {
                     id="loginpassword"
                     {...register("password", { required: true })}
                     onChange={(event) => {
-                      setPassword(event.target.value);
+                      setPassword(event.target.value)
                     }}
                   />
                   {errors.password && (
                     <span className="text-danger fst-italic fw-none">
-                      password required
+                      Password required
                     </span>
                   )}
                 </div>
@@ -175,6 +158,7 @@ const Loginpage = () => {
         </div>
       </div>
     </Fragment>
-  );
-};
-export default Loginpage;
+  )
+}
+
+export default Login

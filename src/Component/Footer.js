@@ -79,9 +79,9 @@ function Footer() {
                         <div className="col-sm-3">
                             <h1 className=' text-white fs-6 fw-bold'>SUBSCRIBE US</h1><br />
                             <p><a className='Ab' href="/">Get in Touch</a></p>
-                            <form class="d-flex bg-light rounded" action='/'>
-                                <input class="form-control" type="search" placeholder="Email address..." aria-label="Search" style={{ border: "none", outline: "none" }} />
-                                <button class="btn clogo pe-4 ps-5" type="submit" style={{ border: "none" }}><FaArrowRight /></button>
+                            <form className="d-flex bg-light rounded" action='/'>
+                                <input className="form-control" type="search" placeholder="Email address..." aria-label="Search" style={{ border: "none", outline: "none" }} />
+                                <button className="btn clogo pe-4 ps-5" type="submit" style={{ border: "none" }}><FaArrowRight /></button>
                             </form>
                         </div>
                     </dir>
