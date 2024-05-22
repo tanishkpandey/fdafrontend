@@ -1,0 +1,33 @@
+.Careerdiv1{
+    height: 50vh;
+    width: 100%;
+    background-color: rgb(225, 178, 91);
+}
+
+.Ch{
+    padding-top: 8rem;
+    text-align: center;
+    font-family: poppins;
+    color: rgb(24, 91, 5);
+}
+
+ .Keyword,.catagory,.jobtype,.joblocation,.searchjob{
+    height: 50px;
+    width: 180px;
+    margin-left: 30px;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.searchjob:hover{
+    background-color: blue;
+}
+.Clogo2{
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+.Clogo2:hover{
+    background-color: rgb(136, 222, 222);
+}
+

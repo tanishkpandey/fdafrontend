@@ -1,0 +1,19 @@
+.Sleft:hover,.Sright:hover{
+    height: 50px;
+    width: 50px;
+    background-color: #a8b324;
+    border-radius: 50%;
+}
+.arrow{
+    position: relative;
+    top: 13px;
+    color: black;
+    
+}
+
+.part1{
+    height: 400px;
+}
+.part2{
+    height: 400px;
+}

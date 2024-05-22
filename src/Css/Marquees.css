@@ -1,0 +1,50 @@
+.para {
+    font-family: poppins;
+    animation-duration: 12s;
+    animation-name: parag;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+}
+
+.Marquesdiv1 {
+    margin-top: 10px;
+    height: 400px;
+    width: auto;
+    overflow: hidden;
+}
+
+@keyframes parag {
+    0% {
+        margin-top: -20%;
+    }
+    
+    to {
+        margin-top: 200%;
+    }
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+  
+  .marquee span {
+    color: rgb(241, 114, 9);
+    font-weight: bold;
+    font-family:  'Times New Roman', Times, serif;
+    letter-spacing: .2px;
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }

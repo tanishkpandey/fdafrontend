@@ -1,0 +1,8 @@
+.nav-link.active {
+  color: #a8b324 !important;
+  /* or any color you prefer */
+}
+
+.Bapply:hover {
+  transform: scale(1.05);
+}

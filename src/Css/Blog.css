@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+}
+
+.blogcontainer {
+    display: flex;
+    justify-content: start;
+    align-items: top;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.animated-box {
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    animation-name: example;
+    /* Specifies the name of the @keyframes animation */
+    animation-duration: 4s;
+    /* Specifies the duration of the animation */
+    animation-timing-function: linear;
+    /* Specifies the speed curve of the animation */
+    animation-delay: 1s;
+    /* Specifies a delay before the animation starts */
+    animation-iteration-count: infinite;
+    /* Specifies the number of times the animation should run */
+    /* Specifies whether the animation should play in reverse on alternate cycles */
+    animation-fill-mode: both;
+    /* Specifies how a CSS animation should apply styles to its target before and after it is executing */
+    animation-play-state: running;
+    /* Specifies whether the animation is running or paused */
+}
+
+@keyframes example {
+    0% {
+        transform: translate(0,0);
+        background-color: #4CAF50;
+    }
+
+    25% {
+        transform: translate(120px,0);
+        background-color: #ff5722;
+    }
+
+    50% {
+        transform: translate(120px,400px);
+        background-color: #2196F3;
+    }
+
+    75% {
+        transform: translate(0,400px);
+        background-color: #ffeb3b;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        background-color: #4CAF50;
+    }
+}
+
+.blogCardImg {
+    animation-name: blogCard;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+}
+
+@keyframes blogCard {
+    0% {
+        transform: translateY(300px);
+    }
+
+    25% {
+        transform: translateY(-20px);
+    }
+
+    50% {
+        transform: translateY(10px);
+
+    }
+
+    75% {
+        transform: translateX(0px);
+
+    }
+
+    100% {
+        transform: translateY(0);
+
+    }
+}

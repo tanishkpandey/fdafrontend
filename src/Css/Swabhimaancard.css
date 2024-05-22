@@ -1,0 +1,15 @@
+
+    .Swdiv1{
+        height: 50vh;
+        width: 100%;
+        background-color: rgb(225, 178, 91);
+    }
+
+.Sw{
+    padding-top: 8rem;
+    text-align: center;
+    font-family: poppins;
+    color: rgb(24, 91, 5);
+    letter-spacing: .5px;
+}
+

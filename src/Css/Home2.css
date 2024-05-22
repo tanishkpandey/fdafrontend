@@ -1,0 +1,23 @@
+.homediv1>img:first-child{
+    display: inline;
+    position: relative;
+    top: 193px;
+    right: 240px;
+    transform: rotate(-3deg);
+    width: 350px;
+}
+.homediv2>img:first-child{
+    display: inline;
+    position: relative;
+    top: 28px;
+    left: 198px;
+    transform: rotate(-1deg);
+    width: 350px;
+}
+#Fahandhold:hover{
+    color: rgb(97, 134, 97);
+    height: 3.2rem;
+    width: 3.2rem;
+    cursor: pointer;
+    transition-duration: .3s;
+}

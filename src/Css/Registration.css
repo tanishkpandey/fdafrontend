@@ -1,0 +1,20 @@
+#inputusername,#inputemail,#inputState,#inputpassword,#inputmobile,#inputconfirmpassword{
+    background: transparent;
+    color: wheat;
+    border: 1px solid aqua;
+}
+
+.regdiv2 a{
+    text-decoration: none;
+}
+
+.backbtn{
+    background-color: transparent;
+    color: blue;
+    font-weight: lighter;
+}
+
+.backbtn:hover{
+    color: white;
+    font-weight: bold;
+}

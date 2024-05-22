@@ -1,0 +1,35 @@
+
+
+.Ab{
+    text-decoration: none;
+    color: #909896;
+    font-size: 14px;
+}
+.Ab:hover{
+    color: #bab93b;
+}
+
+.Semail {
+    height: 30px;
+    width: 230px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.mail {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    width: 180px;
+}
+.clogo:hover{
+    background-color: #bab93b;
+}
+
+@media only screen and (max-width: 600px) {
+    .Footerdiv1{
+        max-height: 500px;
+        overflow: scroll;
+    }
+  }
