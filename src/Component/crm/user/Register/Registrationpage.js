@@ -69,6 +69,7 @@ function Registrationpage() {
       confirmPassword,
     }
 
+    console.log(formData)
 
     Axios.post("http://localhost:4000/api/users/register", formData)
       .then((response) => {
@@ -96,7 +97,7 @@ function Registrationpage() {
         }
       })
       .catch((err) => {
-        toast.error("Registration failed. Please try again.");
+        toast.error("Registration failed. Please try again.")
         console.log(err)
       })
 

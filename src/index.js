@@ -8,6 +8,7 @@ import "./../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import { Toaster } from "react-hot-toast"
 
 const Fdapage = lazy(() => import("./Main/Fdapage"))
+const UsersList = lazy(() => import("./Component/crm/user/UsersList"))
 const LandingPage = lazy(() => import("./Main/LandingPage"))
 const About = lazy(() => import("./Main/About"))
 const Swabhimaan = lazy(() => import("./Main/Swabhimaan"))
@@ -66,6 +67,15 @@ root.render(
           />
 
           <Route
+            path="users-list"
+            element={
+              <Suspense fallback={<Fallbackdata />}>
+                <UsersList />
+              </Suspense>
+            }
+          />
+
+          <Route
             path="Swabhimaan-card"
             element={
               <Suspense fallback={<Fallbackdata />}>
@@ -118,7 +128,6 @@ root.render(
               }
             />
           </Route>
-          
         </Route>
         <Route
           path="crm"
